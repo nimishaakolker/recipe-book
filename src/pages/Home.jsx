@@ -11,11 +11,7 @@ const Home = () => {
 const [categories, setCategories] = useState([])
 const [selectedCategory, setSelectedCategory] = useState('')
 
-
    const debouncedSearch = useDebounce(search, 500)
-
-
-
  useEffect(() => {
   fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
     .then(res => res.json())
@@ -37,11 +33,10 @@ const url = selectedCategory
         setLoading(false)}
       )
      },[debouncedSearch,selectedCategory])
-     const filterCategory = () => {      
-     }
+     
 
   return (
-    <div className=''>
+    <div>
       <div className='flex gap-2 flex-wrap'>
 {categories.map(cat => (
   <button   onClick={() => setSelectedCategory(cat.strCategory)}
